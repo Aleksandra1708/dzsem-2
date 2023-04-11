@@ -6,34 +6,27 @@
     return result;
 }
 
-bool IsWeekend(int weekDay)
+int GetThirdRank (int number)
 {
-    if (weekDay > 5)
+    while (number > 999);
     {
-        return true;
+        number /= 10;
     }
-    return false;
+    return number % 10;
 }
 
-bool ValidateWeekDay (int number)
+bool ValidateNumber (int number)
 {
-    if ( number > 0 && number <=7)
+    if (number < 100)
     {
-        return true;
+        Console.WriteLine("Третьей цифры нет");
+        return false;
     }
-    Console.WriteLine ("ЭТО не день недели!");
-    return false;
+    return true;
 }
 
-int weekDay = Prompt( "Введите день недели >");
-if (ValidateWeekDay(weekDay))
+int number = Prompt ("Введите число > ");
+if (ValidateNumber(number))
 {
-    if (IsWeekend(weekDay))
-    {
-        Console.WriteLine ("Наконец выходной");
-    }
-    else
-    {
-        Console.WriteLine ("Работай пока");
-    }
+    Console.WriteLine(GetThirdRank(number));
 }
